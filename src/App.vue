@@ -7,29 +7,46 @@ function incrementarContador() {
   contador.value++
 }
 function decrementarContador() {
-  contador.value--
+  if(contador.value > 0){
+    contador. value--
+  }
 }
-
+function reiniciar(){
+  contador.value = 0
+}
 onMounted(() => {
   console.log(`O valor inicial do contador é ${contador.value}.`)
 })
 </script>
 
 <template>
-  <button @click="incrementarContador">Incrementar</button>
+  <div class="container">
+    '<button @click="incrementarContador">Incrementar</button>
   <button @click="decrementarContador">Decrementar</button>
-  <p>Valor do contador é: {{ contador }}</p>
+  <button @click="reiniciar">Zerar contador</button>
+  <p>Valor do contador é: {{ contador }}</p>'
+  </div>
 </template>
 
 <style>
+
   button {
+  width: 100px;
+  height: 30px;
   font-weight:bolder;
-  background-color: deeppink;
+  border-radius: 20px;
+  border: 3px solid rgb(247, 93, 175);
+  background-color: rgb(247, 106, 181);
 }
 body{
   background-color: black;
 }
 p{
   color: aliceblue;
+}
+.container{
+  display: grid;
+  grid-template-columns: auto;
+  
 }
 </style>
